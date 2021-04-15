@@ -103,40 +103,46 @@ export const ShowListButton = styled.button`
   }
 `;
 
+export const GridButtons = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
+
 export const ClearButton = styled.button`
+  width: 20%;
   margin-bottom: 2%;
-  height: 5vh;
-  background: #ff0000;
-  border: transparent;
-  border-radius: 5px;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1em;
-  margin: 1em;
+  background: transparent;
+  border: none;
+
+  img {
+    width: 100%;
+
+    @media (max-width: 499px) {
+      width: 80%;
+    }
+  }
 
   &:hover {
     cursor: pointer;
-    background: #ff4000;
-    opacity: 0.8;
-    transition: 300ms;
   }
 `;
 
 export const BackButton = styled.button`
+  width: 20%;
   margin-bottom: 2%;
-  height: 5vh;
-  background: #762d93;
+  background: transparent;
+  border: none;
   border: transparent;
-  border-radius: 5px;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1em;
-  margin: 1em;
+
+  img {
+    width: 90%;
+
+    @media (max-width: 499px) {
+      width: 80%;
+    }
+  }
 
   &:hover {
     cursor: pointer;
-    background: #762d93;
-    opacity: 0.8;
-    transition: 300ms;
   }
 `;

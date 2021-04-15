@@ -5,6 +5,7 @@ import { baseUrl, axiosConfig } from "./parameters";
 import {
   ContainerDetailMatch,
   PerfilePhotoDetail,
+  GridButtons,
   ClearButton,
   BackButton,
 } from "./styled-components";
@@ -53,28 +54,44 @@ export default function Matches() {
 
   return (
     <div>
-      {matches.map((match) => {
-        return (
-          <ContainerDetailMatch>
-            <PerfilePhotoDetail src={match.photo} />
-            <p>{match.name}</p>
-          </ContainerDetailMatch>
-        );
-      })}
-      <ClearButton
-        onClick={() => {
-          if (
-            window.confirm(
-              "Tem certeza que deseja limpar a sua lista de matches?"
-            )
-          ) {
-            clearMatchs(showPerfile.id);
-          }
-        }}
-      >
-        Limpar Matches
-      </ClearButton>
-      <BackButton onClick={changePage}>Voltar</BackButton>
+      {matches.length === 0 ? (
+        <p>Nenhum match para listar :(</p>
+      ) : (
+        matches.map((match) => {
+          return (
+            <ContainerDetailMatch>
+              <PerfilePhotoDetail src={match.photo} />
+              <p>{match.name}</p>
+            </ContainerDetailMatch>
+          );
+        })
+      )}
+
+      <GridButtons>
+        <ClearButton
+          onClick={() => {
+            if (
+              window.confirm(
+                "Tem certeza que deseja limpar a sua lista de matches?"
+              )
+            ) {
+              clearMatchs(showPerfile.id);
+            }
+          }}
+        >
+          <img
+            src="https://cdn0.iconfinder.com/data/icons/zake-miscellaneous-005/64/broom_clear-512.png"
+            alt="Ícone de limpeza"
+          />
+        </ClearButton>
+
+        <BackButton onClick={changePage}>
+          <img
+            src="https://img.icons8.com/nolan/64/back.png"
+            alt="Ícone de voltar"
+          />
+        </BackButton>
+      </GridButtons>
     </div>
   );
 }

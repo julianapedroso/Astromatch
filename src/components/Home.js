@@ -12,6 +12,7 @@ import {
 import IconLike from "../img/like-pink.png";
 import IconRemove from "../img/remove.jpg";
 import Match from "../img/match.png";
+import Loading from "../img/loading.gif";
 
 export default function Home() {
   const [showPerfile, setShowPerfile] = useState([]);
@@ -52,12 +53,13 @@ export default function Home() {
       choice: true,
     };
 
-    setIsMatch(true)
+    setIsLoading(true)
     axios
       .post(`${baseUrl}/${axiosConfig}/choose-person`, body)
       .then((response) => {
         getProfileToChoose();
-        alert("Uhuuu, você curtiu!");
+        setIsLoading(false);
+        alert("Deu match!");
       })
       .catch((error) => {
         console.log(error);
@@ -69,10 +71,13 @@ export default function Home() {
       id: showPerfile.id,
       choice: false,
     };
+
+    setIsLoading(true)
     axios
       .post(`${baseUrl}/${axiosConfig}/choose-person`, body)
       .then((response) => {
         getProfileToChoose();
+        setIsLoading(false);
         alert("Que pena, você não curtiu :(");
       })
       .catch((error) => {
@@ -80,9 +85,24 @@ export default function Home() {
       });
   };
 
+
   return (
+    <>
+    {isLoading && (
+        <div
+          src={Loading}
+          alt="GIF loading"
+          style={{
+            display: "flex",
+            flexGrow: "1",
+            justifyContent: "center",
+            alignSelf: "center",
+            justifyItems: "center",
+          }}
+        />
+    )}
     <TextDetail>
-      <PerfilePhoto src={showPerfile.photo} alt="Logo Astromatch" />
+      <PerfilePhoto src={showPerfile.photo} alt="Foto perfil" />
       <h3>
         {showPerfile.name}, {showPerfile.age} anos
       </h3>
@@ -107,5 +127,6 @@ export default function Home() {
         </div>
       </div>
     </TextDetail>
+    </>
   );
 }
