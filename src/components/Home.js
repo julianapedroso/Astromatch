@@ -53,7 +53,7 @@ export default function Home() {
       choice: true,
     };
 
-    setIsLoading(true)
+    setIsLoading(true);
     axios
       .post(`${baseUrl}/${axiosConfig}/choose-person`, body)
       .then((response) => {
@@ -72,7 +72,7 @@ export default function Home() {
       choice: false,
     };
 
-    setIsLoading(true)
+    setIsLoading(true);
     axios
       .post(`${baseUrl}/${axiosConfig}/choose-person`, body)
       .then((response) => {
@@ -85,10 +85,9 @@ export default function Home() {
       });
   };
 
-
   return (
     <>
-    {isLoading && (
+      {isLoading && (
         <div
           src={Loading}
           alt="GIF loading"
@@ -100,13 +99,15 @@ export default function Home() {
             justifyItems: "center",
           }}
         />
-    )}
-    <TextDetail>
+      )}
+
       <PerfilePhoto src={showPerfile.photo} alt="Foto perfil" />
-      <h3>
-        {showPerfile.name}, {showPerfile.age} anos
-      </h3>
-      <p>{showPerfile.bio}</p>
+      <TextDetail>
+        <h3>
+          {showPerfile.name}, {showPerfile.age} anos
+        </h3>
+        <p>{showPerfile.bio}</p>
+      </TextDetail>
       <div>
         <OptionsButton>
           <OptionsIcon
@@ -126,7 +127,6 @@ export default function Home() {
           <ShowListButton onClick={changePage}>Mostrar Matches</ShowListButton>
         </div>
       </div>
-    </TextDetail>
     </>
   );
 }

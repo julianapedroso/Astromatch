@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const LogoAstroMatch = styled.img`
-  width: 35%;
-  padding-top: 10px;
+  width: 50%;
+  padding-top: 0.625rem;
 
   @media (max-width: 499px) {
     width: 50%;
@@ -10,11 +10,12 @@ export const LogoAstroMatch = styled.img`
 `;
 
 export const MainContainer = styled.div`
+  border: 2px solid rgba(0, 0, 0, 0.7);
   border-radius: 5px;
-  border: 1px solid #000;
-  height: auto;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
+  height: 100%;
   width: 30%;
-  margin: 1% auto 0 auto;
+  margin: 2% auto 0 auto;
 
   @media (max-width: 499px) {
     width: 80%;
@@ -22,6 +23,32 @@ export const MainContainer = styled.div`
 `;
 
 export const TextDetail = styled.div`
+  background: #ededed;
+  height: auto;
+  width: 94%;
+  margin: 0 auto;
+  padding: 0.5rem 0 1.5rem 0;
+  position: relative;
+  bottom: 2rem;
+  /* background: #ededed;
+  height: auto;
+  padding: 0.5rem 1rem 1.5rem 1rem;
+  width: 20vw;
+  margin-left: 2rem;
+  position: absolute;
+  bottom: 23.75rem;
+  border-radius: 0 0 5px 5px; */
+
+  @media (min-width: 1281px) {
+  }
+
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    /* width: 21vw;
+    margin-left: 0.75rem;
+    position: absolute;
+    bottom: 14.9rem; */
+  }
+
   h3 {
     color: #fff;
     font-size: 1.3em;
@@ -30,14 +57,19 @@ export const TextDetail = styled.div`
 
   p {
     text-align: left;
-    margin: 0 0.8em;
+    margin: 0 1em;
   }
 `;
 
 export const PerfilePhoto = styled.img`
   border-radius: 5px;
-  width: 80%;
+  width: 23.75rem;
   height: 45vh;
+  margin-top: 3%;
+
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    /* width: 20rem; */
+  }
 `;
 
 export const ContainerDetailMatch = styled.div`
@@ -48,15 +80,15 @@ export const ContainerDetailMatch = styled.div`
   margin: 1em;
 
   p {
-    font-size: 1em;
-    font-weight: normal;
-    padding: 2em;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1.5em;
   }
 `;
 
 export const PerfilePhotoDetail = styled.img`
-  width: 7vw;
-  height: 15vh;
+  width: 20%;
+  height: 11vh;
   border-radius: 50%;
 
   @media (max-width: 499px) {
@@ -66,10 +98,10 @@ export const PerfilePhotoDetail = styled.img`
 `;
 
 export const OptionsIcon = styled.img`
-  height: 60px;
+  height: 3.75rem;
 
   &:hover {
-    height: 70px;
+    height: 4.375rem;
   }
 `;
 
@@ -108,8 +140,14 @@ export const GridButtons = styled.div`
   justify-content: space-evenly;
 `;
 
+export const NoMatches = styled.p`
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1.5em;
+`;
+
 export const ClearButton = styled.button`
-  width: 20%;
+  width: 18%;
   margin-bottom: 2%;
   background: transparent;
   border: none;
@@ -128,7 +166,7 @@ export const ClearButton = styled.button`
 `;
 
 export const BackButton = styled.button`
-  width: 20%;
+  width: 18%;
   margin-bottom: 2%;
   background: transparent;
   border: none;

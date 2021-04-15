@@ -6,6 +6,7 @@ import {
   ContainerDetailMatch,
   PerfilePhotoDetail,
   GridButtons,
+  NoMatches,
   ClearButton,
   BackButton,
 } from "./styled-components";
@@ -55,7 +56,7 @@ export default function Matches() {
   return (
     <div>
       {matches.length === 0 ? (
-        <p>Nenhum match para listar :(</p>
+        <NoMatches>Nenhum match para listar :(</NoMatches>
       ) : (
         matches.map((match) => {
           return (
@@ -66,7 +67,6 @@ export default function Matches() {
           );
         })
       )}
-
       <GridButtons>
         <ClearButton
           onClick={() => {
